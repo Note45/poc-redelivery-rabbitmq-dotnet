@@ -1,0 +1,7 @@
+﻿services:
+  redeliveryproject:
+    image: redeliveryproject
+    build:
+      context: .
+      dockerfile: Dockerfile
+
