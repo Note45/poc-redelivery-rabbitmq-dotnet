@@ -39,8 +39,14 @@ namespace RedeliveryProject
                                     s.ExchangeType = "direct";
                                 });
 
-                                // Only redelevery logic has the retry logic
-                                e.UseMessageRetry(r => r.None());
+                                e.UseMessageRetry(r =>
+                                {
+                                    r.Handle<HttpRequestException>();
+                                    r.Handle<TimeoutException>();
+
+                                    // retry using interval of 5 seconds
+                                    r.Interval(3, TimeSpan.FromSeconds(5));
+                                });
 
                                 e.ConfigureConsumer<MyMessageConsumer>(ctx);
                             });
