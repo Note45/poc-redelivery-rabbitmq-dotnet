@@ -28,10 +28,10 @@ This project is a case study where I implemented retry and redelivery strategies
 
 2. Run RabbitMQ service
 
-4. Run the project:
+3. Run the project:
 
 ```bash 
   dotnet run --project RedeliveryProject/RedeliveryProject.csproj 
 ```
 
-5. The Redelivery RabbitMQ Project logs in terminal will show the stages
+4. The Redelivery RabbitMQ Project logs in terminal will show the stages
